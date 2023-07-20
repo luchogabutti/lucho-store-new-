@@ -1,0 +1,30 @@
+.style {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-container{
+    margin: 5px;
+}
+
+.producto {
+    text-align: center;
+    background-color: aqua;
+    margin: 10px;
+    padding: 10px    ;
+    border-radius: 5px;
+}
+
+.product-image {
+    width: 70px;
+    height: 60px;
+    border-radius: 15px;
+    padding: 8PX;
+}
+
+.circular-text {
+    margin-left: 10px;
+}
+
