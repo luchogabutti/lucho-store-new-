@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './style.css'
 import { getProducts } from "../../services/productService";
-import DataTable from "./DataTable";
+import { DataTable } from "./Layout";
+import AddButton from "../../components/AddButton/addButton";
 
 const Products = () => {
 
@@ -18,15 +19,17 @@ const Products = () => {
                 console.log("Error fetching products:", error);
             }
         };
-
         fetchProducts();
     }, []);
 
     return (
         <div className="style">
-            <h1>This is Products Page</h1>
-            <Link to='/'>Go to Home Page</Link>
-            <DataTable />
+            <h1>Product List</h1>
+            <div className="little-container">
+                <Link to='/' className="go-back-text">Go to Home Page</Link>
+                <Link to='/new-product'><AddButton /></Link>
+            </div>
+            <DataTable products={products}/>
         </div>
     );
 };

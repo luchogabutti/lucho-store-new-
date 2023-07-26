@@ -3,6 +3,7 @@ import { DataGrid } from '@material-ui/data-grid';
 import { useState, useEffect } from 'react';
 import { getProducts } from '../../services/productService';
 import { CircularProgress } from '@material-ui/core';
+
 const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
   {
@@ -66,31 +67,12 @@ const columns = [
   },
 ];
 
-export default function DataTable() {
-
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-    const fetchProducts = async () => {
-        try {
-            const data = await getProducts();
-            setProducts(data.products);
-        } catch (error) {
-            console.log("Error fetching products:", error);
-        }
-    };
-
-    fetchProducts();
-}, []);
-
-
-  return (
-    <div style={{ height: 500, width: '95%'}}>
-      <DataGrid
-        rows={products}
-        columns={columns}
-        pageSize={8}
-      />
-    </div>
-  );
-}
+export const DataTable = ({ products }) => (
+  <div style={{ height: 500, width: '95%'}}>
+    <DataGrid
+      rows={products}
+      columns={columns}
+      pageSize={8}
+    />
+  </div>
+);
