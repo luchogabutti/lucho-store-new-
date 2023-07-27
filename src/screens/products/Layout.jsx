@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { DataGrid } from '@material-ui/data-grid';
-import { useState, useEffect } from 'react';
-import { getProducts } from '../../services/productService';
 import { CircularProgress } from '@material-ui/core';
 
 const columns = [

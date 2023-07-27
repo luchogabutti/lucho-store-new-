@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import './style.css'
 import { getProducts } from "../../services/productService";
 import { DataTable } from "./Layout";
-import AddButton from "../../components/AddButton/addButton";
+import ContainedButtons from "../../components/AddButton/AddButton";
+import GoBackButton from "../../components/GoBackButton";
+
 
 const Products = () => {
 
@@ -26,8 +28,8 @@ const Products = () => {
         <div className="style">
             <h1>Product List</h1>
             <div className="little-container">
-                <Link to='/' className="go-back-text">Go to Home Page</Link>
-                <Link to='/new-product'><AddButton /></Link>
+            <GoBackButton />
+                <Link to='/new-product'><ContainedButtons /></Link>
             </div>
             <DataTable products={products}/>
         </div>

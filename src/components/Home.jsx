@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <div className="style">
             <h1>This is Home Page</h1>
-            <Link to='/products'>Go to Products Page</Link>
+            <Link to='/products'>See Product List</Link>
        </div>
     )
 }
