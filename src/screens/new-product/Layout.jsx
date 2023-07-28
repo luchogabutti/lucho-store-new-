@@ -8,7 +8,7 @@ import CreateProductButton from '../../components/CreateProductButton';
 import { addProducts } from '../../services/addProductService';
 
 
-export default function NewProductForm() {
+export default function NewProductForm({products}) {
 
   const [inputs, setInputs] = useState({})
 
