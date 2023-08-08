@@ -59,7 +59,7 @@ export default function NewProductForm({products}) {
         <TextField
           id="outlined-multiline-static"
           label="Description"
-          name='description'
+          name="description"
           multiline
           rows={4}
           value={inputs.description || ""}
@@ -69,8 +69,9 @@ export default function NewProductForm({products}) {
           id="outlined-textarea"
           label="Price"
           placeholder="Price"
-          name='price'
+          name="price"
           multiline
+          type="number"
           required
           value={inputs.price || ""} 
           onChange={handleChange}
@@ -78,6 +79,7 @@ export default function NewProductForm({products}) {
          <TextField
           id="outlined-textarea"
           label="Discount Porcentage"
+          type="number"
           placeholder="%"
           name='discount'
           multiline
@@ -88,6 +90,7 @@ export default function NewProductForm({products}) {
           id="outlined-textarea"
           label="Stock"
           placeholder="Stock"
+          type="number"
           multiline
           name='stock'
           required
