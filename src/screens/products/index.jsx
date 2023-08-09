@@ -29,7 +29,7 @@ const Products = () => {
             <h1>Product List</h1>
             <div className="little-container">
             <GoBackButton />
-                <Link to='/new-product'><ContainedButtons /></Link>
+            <Link to='/new-product'><ContainedButtons /></Link>
             </div>
             <DataTable products={products}/>
         </div>

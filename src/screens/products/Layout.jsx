@@ -2,7 +2,6 @@ import * as React from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { CircularProgress } from '@material-ui/core';
 import OptionsButton from '../../components/OptionButton';
-import { Link } from 'react-router-dom';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
@@ -68,10 +67,10 @@ const columns = [
   {
     field: 'Actions',
     width: 140,
-    renderCell: () => {
+    renderCell: (product) => {
       return (
         <>
-          <OptionsButton />
+          <OptionsButton productId={product.row.id} />
         </>
       )
     }

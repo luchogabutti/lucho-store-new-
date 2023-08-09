@@ -51,12 +51,14 @@ const StyledMenu = styled((props) => (
   },
 }));
 
-export default function OptionsButton() {
+export default function OptionsButton({ productId }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+  
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -82,11 +84,11 @@ export default function OptionsButton() {
         open={open}
         onClose={handleClose}
       >
-        <Link to='/new-product' className='edit-button'>
-        <MenuItem onClick={handleClose} disableRipple>
-           <EditIcon />
-          Edit
-        </MenuItem>
+        <Link to={`/products/${productId}/edit`} className="edit-button">
+          <MenuItem onClick={handleClose} disableRipple>
+          <EditIcon />
+            Edit
+          </MenuItem>
         </Link>
         <MenuItem onClick={handleClose} disableRipple>
           <DeleteIcon />
