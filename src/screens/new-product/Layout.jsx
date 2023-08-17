@@ -123,6 +123,18 @@ export default function NewProductForm () {
           onChange={handleChange}
         />
 
+        <TextField
+          id="outlined-textarea"
+          label="Category"
+          placeholder="Category"
+          type="number"
+          multiline
+          name='category'
+          required
+          value={inputs.category || ""} 
+          onChange={handleChange}
+        />
+
         <Stack direction="row" spacing={2}>
             <Button onClick={handleSubmit} variant="contained">{ productId ? 'Edit Product' : 'Create Product' }</Button>
         </Stack>
