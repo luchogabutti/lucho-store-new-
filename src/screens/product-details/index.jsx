@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getProductDetail } from "../../services/getProductDetailService";
 import { useParams } from "react-router-dom";
+import { getProductDetail } from "../../services/productService";
 import GoBackButton from "../../components/GoBackButton";
 import './style.css'
 import ColumnsGrid from "./Grid";

@@ -4,3 +4,16 @@ export const getProducts = async () => {
     return data;
   };
   
+export const getCategories = async () => {
+    const response = await fetch('https://dummyjson.com/products/categories');
+    const data = await response.json();
+    return data;
+};
+
+export const getProductDetail = async (productId) => {
+  const response = await fetch(`https://dummyjson.com/products/${productId}`);
+  const data = await response.json();
+  return data;
+};
+
+  
