@@ -1,0 +1,29 @@
+.stock-props {
+    display: flex;
+    align-items: center;
+}
+
+.stock-props p {
+    margin-right: 5px;
+}
+
+
+h2 {
+    text-align: center;
+}
+
+.go-back-detail {
+    margin-top: 35px;
+    margin-left: 15px;
+    margin-bottom: 30px;
+}
+
+.product-atributes p {
+    font-size: 17.5px;
+}
+
+.img-container {
+    height: 300x;
+    width: 90%;
+    border-radius: 15px;
+}

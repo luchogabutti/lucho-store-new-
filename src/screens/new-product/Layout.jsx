@@ -57,8 +57,6 @@ export default function NewProductForm () {
     }
   };
 
-  
-
   return (
     <>
       <h1>{productId ? `Edit Product #${productId}` : 'Create a new product'}</h1>

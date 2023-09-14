@@ -5,6 +5,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import SettingsIcon from '@mui/icons-material/Settings';
 import EditIcon from '@mui/icons-material/Edit';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Link } from 'react-router-dom';
 import './style.css'
@@ -51,7 +52,7 @@ const StyledMenu = styled((props) => (
   },
 }));
 
-export default function OptionsButton({ productId }) {
+export default function OptionsButton({ productId, products }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -84,16 +85,22 @@ export default function OptionsButton({ productId }) {
         open={open}
         onClose={handleClose}
       >
-        <Link to={`/products/${productId}/edit`} className="edit-button">
-          <MenuItem onClick={handleClose} disableRipple>
-          <EditIcon />
-            Edit
-          </MenuItem>
-        </Link>
+      <Link to={`/product-detail/${productId}`} className="options-button" products={products}>
         <MenuItem onClick={handleClose} disableRipple>
-          <DeleteIcon />
-          Delete
+          <VisibilityIcon />
+            View
         </MenuItem>
+      </Link>
+      <Link to={`/products/${productId}/edit`} className="options-button">
+        <MenuItem onClick={handleClose} disableRipple>
+          <EditIcon />
+              Edit
+        </MenuItem>
+      </Link>
+      <MenuItem onClick={handleClose} disableRipple className="options-button">
+        <DeleteIcon />
+        Delete
+      </MenuItem>
         </StyledMenu>
     </div>
   );    

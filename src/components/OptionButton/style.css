@@ -1,8 +1,8 @@
-.edit-button {
+.options-button {
     color: rgb(55, 65, 81);
     text-decoration: none;
 }
 
-.edit-button:hover {
+.options-button:hover {
     text-decoration: underline;
 }
