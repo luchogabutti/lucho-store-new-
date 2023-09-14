@@ -1,0 +1,15 @@
+.form {
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    align-items: end;
+    padding: 15px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.go-back {
+    margin-left: 25px;   
+}
