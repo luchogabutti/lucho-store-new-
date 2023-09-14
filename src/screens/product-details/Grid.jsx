@@ -5,7 +5,6 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { CircularProgress } from '@material-ui/core';
 import Typography from '@mui/material/Typography';
 import './style.css'
-import Rating from '@mui/material/Rating';
 import HalfRating from '../../components/Rating';
 
 const Item = styled(Paper)(({ theme }) => ({

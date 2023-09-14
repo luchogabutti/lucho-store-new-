@@ -22,7 +22,7 @@ const columns = [
   {
     field: 'stock',
     headerName: 'Stock',
-    width: 150,
+    width: 115,
     renderCell: (product) => {
       return (
           <>
@@ -65,8 +65,13 @@ const columns = [
     width: 160,
   },
   {
+    field: 'category',
+    headerName: 'Cat',
+    width: 120, 
+  },
+  {
     field: 'Actions',
-    width: 140,
+    width: 125,
     renderCell: (product) => {
       return (
         <>
