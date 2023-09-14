@@ -10,4 +10,4 @@ export const addProducts = async (newProduct) => {
     }
 
     throw new Error('HA ocurrido un error')
-}
+} 
