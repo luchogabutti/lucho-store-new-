@@ -93,7 +93,7 @@ export default function NewProductForm () {
           name="name"
           maxRows={4}
           required
-          value={inputs.name || ''} 
+          value={inputs.title || ''} 
           onChange={handleChange}
         />
         <TextField
@@ -139,11 +139,11 @@ export default function NewProductForm () {
         />
         <div className='select-container'>
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Category</InputLabel>
+            <InputLabel id="demo-simple-select-label">{ productId ? `${inputs.category}`: 'Category' }</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={inputs.category || ''}
+              value={inputs.category}
               label="Age"
               onChange={handleChange}
             >
