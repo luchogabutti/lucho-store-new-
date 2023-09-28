@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './style.css'
-import { getProducts, getCategories } from "../../services/productService";
+import { getProducts, getCategories, getAllProducts } from "../../services/productService";
 import { Layout } from "./Layout";
 import ContainedButtons from "../../components/AddButton/AddButton";
 import GoBackButton from "../../components/GoBackButton";
 
 const Products = () => {
-  const [allProducts, setAllProducts] = useState([]); // Almacena todos los productos
+  const [allProducts, setAllProducts] = useState([]);
   const [pageState, setPageState] = useState({
     isLoading: false,
     data: [],
@@ -21,12 +21,15 @@ const Products = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setPageState(old => ({ ...old, isLoading: true }))
+      setPageState(old => ({ ...old, isLoading: true }));
       const skip = (pageState.page - 1) * pageState.pageSize;
       try {
-        const data = await getProducts(pageState, skip);
-        setPageState(old => ({ ...old, isLoading: false, data: data.data, total: data.total }))
-        setAllProducts(data.products);
+
+        const allProductsResponse = await getAllProducts();
+        setAllProducts(allProductsResponse.products);
+
+        const response = await getProducts(pageState, skip);
+        setPageState(old => ({ ...old, isLoading: false, data: response.data, total: response.total }));
       } catch (error) {
         console.error('Error fetching products:', error);
       }
@@ -44,12 +47,19 @@ const Products = () => {
     }
   };
 
-  const filteredProducts = allProducts.filter(item => {
+  const getCurrentPageProducts = () => {
+    const skip = (pageState.page - 1) * pageState.pageSize;
+    const currentPageProducts = filteredProducts.slice(skip, skip + pageState.pageSize);
+    return currentPageProducts;
+  };
+
+  const filteredProducts = allProducts ? allProducts.filter(item => {
+    if (!item) return false;
     const matchesSearch = productSearch.toLowerCase() === '' || item.title.toLowerCase().includes(productSearch.toLowerCase());
     const matchesCategory = selectedCategory === '' || item.category === selectedCategory;
   
     return matchesSearch && matchesCategory;
-  });
+  }) : [];
 
   return (
     <div className="style">
@@ -79,7 +89,7 @@ const Products = () => {
         <Link to='/new-product'><ContainedButtons /></Link>
       </div>
       <Layout 
-        products={filteredProducts}
+        products={getCurrentPageProducts()}
         currentPage={pageState.page}
         pageSize={pageState.pageSize}
         pageState={pageState}
