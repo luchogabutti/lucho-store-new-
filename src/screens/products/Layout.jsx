@@ -82,12 +82,20 @@ const columns = [
   },
 ];
 
-export const DataTable = ({ products }) => (
+export const Layout = ({ products, onPageSizeChange, onPageChange, pageState}) => (
   <div style={{ height: 500, width: '95%'}}>
     <DataGrid
       rows={products}
+      rowCount={pageState.total}
+      loading={pageState.isLoading}
+      rowsPerPageOptions={[10, 30, 50, 70, 100]}
+      pagination
+      page={pageState.page - 1}
+      pageSize={pageState.pageSize}
+      paginationMode="server"
+      onPageChange={onPageChange}
+      onPageSizeChange={onPageSizeChange}
       columns={columns}
-      pageSize={8}
     />
   </div>
 );
